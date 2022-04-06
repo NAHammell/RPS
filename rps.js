@@ -30,9 +30,16 @@ function playRound(playerSelection, computerSelection) {
         return "You lost! Paper loses to scissors.";
     }
 
+    if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "You won! Scissors beats paper.";
+    } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+        return "You tied! Scissors and scissors match.";
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return "You lost! Scissors loses to rock.";
+    }
 }
 
-const playerSelection = "paper";
+const playerSelection = "ScissoRs";
 const computerSelection = computerPlay();
 
 console.log(playRound(playerSelection, computerSelection));
