@@ -36,6 +36,8 @@ function playRound(playerSelection, computerSelection) {
         return "You tied! Scissors and scissors match.";
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
         return "You lost! Scissors loses to rock.";
+    } else {
+        return "An error has occurred...";
     }
 }
 
