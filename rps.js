@@ -39,9 +39,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "ScissoRs";
-const computerSelection = computerPlay();
+// Play a full game, best 3 out of 5
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Rock, paper, or scissors?", "");
+        let computerSelection = computerPlay();
 
-console.log(computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+game();
