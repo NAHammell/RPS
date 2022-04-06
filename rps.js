@@ -61,6 +61,7 @@ function game() {
     } else if (score < 0) {
         console.log(`Your score was ${score}, you lost...`);
     } else {
+        // Just in case
         console.log(`Your score was ${score}, you tied.`);
     }
 }
