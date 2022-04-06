@@ -22,9 +22,17 @@ function playRound(playerSelection, computerSelection) {
         return "You lost! Rock loses to paper.";
     }
 
+    if (playerSelection == "paper" && computerSelection == "rock") {
+        return "You won! Paper beats rock.";
+    } else if (playerSelection == "paper" && computerSelection == "paper") {
+        return "You tied! Paper and paper match.";
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        return "You lost! Paper loses to scissors.";
+    }
+
 }
 
-const playerSelection = "rock";
+const playerSelection = "paper";
 const computerSelection = computerPlay();
 
 console.log(playRound(playerSelection, computerSelection));
