@@ -11,11 +11,13 @@ function computerPlay() {
 
 // Play a round with selection from both player and computer
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
     playerSelection = playerSelection.toLowerCase();
+    let computerSelection = computerPlay();
+    console.log(computerSelection);
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
-        return ["You won! Rock beats scissors.", 1];
+        return ["you Won! Rock beats scissors.", 1]
     } else if (playerSelection == "rock" && computerSelection == "rock") {
         return ["You tied! Rock and rock match.", 0];
     } else if (playerSelection == "rock" && computerSelection == "paper") {
@@ -43,7 +45,7 @@ function playRound(playerSelection, computerSelection) {
 
 // Play a full game, best 3 out of 5
 
-function game() {
+/* function game() {
     let score = 0;
 
     for (let i = 0; i < 5; i++) {
@@ -66,4 +68,19 @@ function game() {
     }
 }
 
-game();
+game(); */
+
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+const resultBox = document.querySelector('#results');
+
+rockBtn.addEventListener('click', function () {
+});
+
+paperBtn.addEventListener('click', function () {
+});
+
+scissorsBtn.addEventListener('click', function () {
+});
