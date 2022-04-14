@@ -56,6 +56,8 @@ function playRound(playerSelection) {
 
 game(); */
 
+// Set variables for buttons and paragraphs
+
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
@@ -64,20 +66,19 @@ const resultBox = document.querySelector('#results');
 const resultPara = document.querySelector('#resultmessage');
 const scores = document.querySelector('#scores');
 
+// Add event listeners to play each game with respective choice
+
 rockBtn.addEventListener('click', function () {
     playRound('rock');
     scores.textContent = `${playerScore} | ${compScore}`;
-    console.log(playerScore);
 });
 
 paperBtn.addEventListener('click', function () {
     playRound('paper');
     scores.textContent = `${playerScore} | ${compScore}`;
-    console.log(playerScore);
 });
 
 scissorsBtn.addEventListener('click', function () {
     playRound('scissors');
     scores.textContent = `${playerScore} | ${compScore}`;
-    console.log(playerScore);
 });
