@@ -29,6 +29,24 @@ function playRound(playerSelection) {
     }
 }
 
+function scoreCheck(player, CPU) {
+    let btns = [[rockBtn, clicked1], [paperBtn, clicked2], [scissorsBtn, clicked3]];
+
+    if (CPU == 5) {
+        scores.textContent = 'The computer has reached 5 points, you lose.';
+        for (let i = 0; i < btns.length; i++) {
+            btns[i][0].removeEventListener('click', btns[i][1]);
+        }
+    } else if (player == 5) {
+        scores.textContent = 'You have reached 5 points, you win!';
+        for (let i = 0; i < btns.length; i++) {
+            btns[i][0].removeEventListener('click', btns[i][1]);
+        }
+    } else {
+        return;
+    }
+}
+
 // Play a full game, best 3 out of 5
 
 /* function game() {
@@ -68,17 +86,29 @@ const scores = document.querySelector('#scores');
 
 // Add event listeners to play each game with respective choice
 
-rockBtn.addEventListener('click', function () {
+rockBtn.addEventListener('click', clicked1 = function () {
     playRound('rock');
-    scores.textContent = `${playerScore} | ${compScore}`;
+    if ((playerScore == 5) || (compScore == 5)) {
+        scoreCheck(playerScore, compScore);
+    } else {
+        scores.textContent = `${playerScore} | ${compScore}`;
+    }
 });
 
-paperBtn.addEventListener('click', function () {
+paperBtn.addEventListener('click', clicked2 = function () {
     playRound('paper');
-    scores.textContent = `${playerScore} | ${compScore}`;
+    if ((playerScore == 5) || (compScore == 5)) {
+        scoreCheck(playerScore, compScore);
+    } else {
+        scores.textContent = `${playerScore} | ${compScore}`;
+    }
 });
 
-scissorsBtn.addEventListener('click', function () {
+scissorsBtn.addEventListener('click', clicked3 = function () {
     playRound('scissors');
-    scores.textContent = `${playerScore} | ${compScore}`;
+    if ((playerScore == 5) || (compScore == 5)) {
+        scoreCheck(playerScore, compScore);
+    } else {
+        scores.textContent = `${playerScore} | ${compScore}`;
+    }
 });
