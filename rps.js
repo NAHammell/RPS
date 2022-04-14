@@ -1,3 +1,6 @@
+let playerScore = 0;
+let compScore = 0;
+
 // Get a random choice from the computer
 
 function computerPlay() {
@@ -14,32 +17,15 @@ function computerPlay() {
 function playRound(playerSelection) {
     playerSelection = playerSelection.toLowerCase();
     let computerSelection = computerPlay();
-    console.log(computerSelection);
 
-    if (playerSelection == "rock" && computerSelection == "scissors") {
-        return ["you Won! Rock beats scissors.", 1]
-    } else if (playerSelection == "rock" && computerSelection == "rock") {
-        return ["You tied! Rock and rock match.", 0];
-    } else if (playerSelection == "rock" && computerSelection == "paper") {
-        return ["You lost! Rock loses to paper.", -1];
-    }
-
-    if (playerSelection == "paper" && computerSelection == "rock") {
-        return ["You won! Paper beats rock.", 1];
-    } else if (playerSelection == "paper" && computerSelection == "paper") {
-        return ["You tied! Paper and paper match.", 0];
-    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        return ["You lost! Paper loses to scissors.", -1];
-    }
-
-    if (playerSelection == "scissors" && computerSelection == "paper") {
-        return ["You won! Scissors beats paper.", 1];
-    } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-        return ["You tied! Scissors and scissors match.", 0];
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return ["You lost! Scissors loses to rock.", -1];
+    if (playerSelection == computerSelection) {
+        resultPara.textContent = `${playerSelection} matches ${computerSelection}, it's a tie.`;
+    } else if ((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'paper' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'rock')) {
+        resultPara.textContent = `${computerSelection} beats ${playerSelection}, you lose...`;
+        compScore += 1;
     } else {
-        return "An error has occurred...";
+        resultPara.textContent = `${playerSelection} beats ${computerSelection}, you win!`;
+        playerScore += 1;
     }
 }
 
@@ -75,12 +61,23 @@ const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 
 const resultBox = document.querySelector('#results');
+const resultPara = document.querySelector('#resultmessage');
+const scores = document.querySelector('#scores');
 
 rockBtn.addEventListener('click', function () {
+    playRound('rock');
+    scores.textContent = `${playerScore} | ${compScore}`;
+    console.log(playerScore);
 });
 
 paperBtn.addEventListener('click', function () {
+    playRound('paper');
+    scores.textContent = `${playerScore} | ${compScore}`;
+    console.log(playerScore);
 });
 
 scissorsBtn.addEventListener('click', function () {
+    playRound('scissors');
+    scores.textContent = `${playerScore} | ${compScore}`;
+    console.log(playerScore);
 });
